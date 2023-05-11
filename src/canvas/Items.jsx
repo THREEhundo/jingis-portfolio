@@ -9,7 +9,6 @@ import store from '../store/index'
 const Items = ({ w = 1, gap = 0.15 }) => {
 	const { urls } = useSnapshot(store)
 	const { width } = useThree(state => state.viewport)
-	console.log(width)
 	const xW = w + gap
 	return (
 		<ScrollControls
