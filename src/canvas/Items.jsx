@@ -10,6 +10,7 @@ const Items = ({ w = 1, gap = 0.15 }) => {
 	const { urls } = useSnapshot(store)
 	const { width } = useThree(state => state.viewport)
 	const xW = w + gap
+	console.log((width - xW + urls.length * xW) / width)
 	return (
 		<ScrollControls
 			horizontal
@@ -25,5 +26,4 @@ const Items = ({ w = 1, gap = 0.15 }) => {
 		</ScrollControls>
 	)
 }
-
 export default Items
