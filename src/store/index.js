@@ -3,7 +3,7 @@ import { proxy } from 'valtio'
 const state = proxy({
 	clicked: null,
 	urls: [
-		'JetpackCyberpunk',
+		'JetpackCyberpunkPoster',
 		'doorway',
 		'gas-station',
 		'neon',
