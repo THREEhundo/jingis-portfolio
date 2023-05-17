@@ -7,25 +7,12 @@ import { damp } from 'three/src/math/MathUtils'
 
 import store from '../store/index'
 
-const centeredOffset = [
-	0, 0.13822435547837197, 0.27644871095674395, 0.414673066435116,
-	0.5528974219134879, 0.6911217773918599, 0.829346132870232,
-	0.9675704883486039, 1.0005316645847058
-]
-
 const centeredScrollPosition = [
 	0, 0.13815090553455422, 0.27630181106910845, 0.4144527166036627,
 	0.5802337870296237, 0.7205101397573755, 0.8607864114076071, 1
 ]
 
-const Item = ({
-	index,
-	position,
-	scale,
-	c = new THREE.Color(),
-	width,
-	...props
-}) => {
+const Item = ({ index, position, scale, c = new THREE.Color(), ...props }) => {
 	const ref = useRef()
 	const scroll = useScroll()
 
@@ -58,8 +45,6 @@ const Item = ({
 			8,
 			delta
 		)
-
-		//ref.current.position.x = scroll.range(0, 1 / 3, -1 / 3, 1 / 3, true)
 
 		// Move the component to the left or right if it is not clicked and is before or after the clicked index
 		// Move the component back to its original position if it is clicked or if nothing is clicked

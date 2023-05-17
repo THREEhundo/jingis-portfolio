@@ -20,7 +20,7 @@ const Items = ({ w = 1, gap = 0.15 }) => {
 			<Minimap />
 			<Scroll>
 				{
-					urls.map((url, i) => <Item key={i} index={i} position={[i * xW, 0, 0]} scale={[w, 4, 1]} url={url} width={width} />) /* prettier-ignore */
+					urls.map((url, i) => <Item key={i} index={i} position={[i * xW, 0, 0]} scale={[w, 4, 1]} url={url} />) /* prettier-ignore */
 				}
 			</Scroll>
 		</ScrollControls>
