@@ -12,7 +12,14 @@ const centeredScrollPosition = [
 	0.5802337870296237, 0.7205101397573755, 0.8607864114076071, 1
 ]
 
-const Item = ({ index, position, scale, c = new THREE.Color(), ...props }) => {
+const Item = ({
+	index,
+	position,
+	scale,
+	c = new THREE.Color(),
+	group,
+	...props
+}) => {
 	const ref = useRef()
 	const scroll = useScroll()
 
@@ -33,7 +40,7 @@ const Item = ({ index, position, scale, c = new THREE.Color(), ...props }) => {
 		// Update the scale of the material and the component based on "x" and "clicked"
 		ref.current.material.scale[0] = ref.current.scale.x = damp(
 			ref.current.scale.x,
-			clicked === index ? 5 : scale[0],
+			clicked === index ? 17 : scale[0],
 			6,
 			delta
 		)
@@ -41,7 +48,7 @@ const Item = ({ index, position, scale, c = new THREE.Color(), ...props }) => {
 		// Update the scale of the material and the component based on "y" and "clicked"
 		ref.current.material.scale[1] = ref.current.scale.y = damp(
 			ref.current.scale.y,
-			clicked === index ? 4.7 : 4 + y,
+			clicked === index ? 7.7 : 4 + y,
 			8,
 			delta
 		)
@@ -51,14 +58,14 @@ const Item = ({ index, position, scale, c = new THREE.Color(), ...props }) => {
 		if (clicked !== null && index < clicked)
 			ref.current.position.x = damp(
 				ref.current.position.x,
-				position[0] - 2,
+				position[0] - 8,
 				6,
 				delta
 			)
 		if (clicked !== null && index > clicked)
 			ref.current.position.x = damp(
 				ref.current.position.x,
-				position[0] + 2,
+				position[0] + 8,
 				6,
 				delta
 			)
@@ -97,6 +104,11 @@ const Item = ({ index, position, scale, c = new THREE.Color(), ...props }) => {
 			c.set(hovered || clicked === index ? 'white' : '#aaa'),
 			hovered ? 0.3 : 0.1
 		)
+		//ref.current.material.zoom = 1 + scroll.range(0, 1 / 3) / 8
+		//// Parallax effect from left to right
+		//const parallaxSpeed = 1 // Adjust this value to control the parallax effect
+		//ref.current.position.x = position[0] + scroll.offset * parallaxSpeed
+		//console.log(ref.current.position.x)
 	})
 	return (
 		<Image

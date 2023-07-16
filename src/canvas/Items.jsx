@@ -5,11 +5,13 @@ import Minimap from './Minimap'
 import Item from './Item'
 
 import store from '../store/index'
+import { useRef } from 'react'
 
-const Items = ({ w = 1, gap = 0.15 }) => {
+const Items = ({ w = 4, gap = 0.15 }) => {
 	const { urls } = useSnapshot(store)
 	const { width } = useThree(state => state.viewport)
 	const xW = w + gap
+	const group = useRef()
 
 	return (
 		<ScrollControls
@@ -18,9 +20,9 @@ const Items = ({ w = 1, gap = 0.15 }) => {
 			pages={(width - xW + urls.length * xW) / width}
 			style={{ overflow: 'hidden' }}>
 			<Minimap />
-			<Scroll>
+			<Scroll ref={group}>
 				{
-					urls.map((url, i) => <Item key={i} index={i} position={[i * xW, 0, 0]} scale={[w, 4, 1]} url={url} />) /* prettier-ignore */
+					urls.map((url, i) => <Item key={i} index={i} position={[i * xW, 0, 0]} scale={[w, 4, 1]} url={url} group={group} />) /* prettier-ignore */
 				}
 			</Scroll>
 		</ScrollControls>
