@@ -32,7 +32,7 @@ const Overlay = () => {
 				style={{
 					position: 'absolute',
 					bottom: 40,
-					right: 40,
+					right: 90,
 					fontSize: '13px'
 				}}>
 				05/09/2023
