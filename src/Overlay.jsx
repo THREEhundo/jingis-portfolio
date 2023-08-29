@@ -35,7 +35,7 @@ const Overlay = () => {
 					right: 90,
 					fontSize: '13px'
 				}}>
-				05/09/2023
+				johnjkimjr@gmail.com
 			</div>
 		</div>
 	)

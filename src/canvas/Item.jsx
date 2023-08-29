@@ -104,11 +104,6 @@ const Item = ({
 			c.set(hovered || clicked === index ? 'white' : '#aaa'),
 			hovered ? 0.3 : 0.1
 		)
-		//ref.current.material.zoom = 1 + scroll.range(0, 1 / 3) / 8
-		//// Parallax effect from left to right
-		//const parallaxSpeed = 1 // Adjust this value to control the parallax effect
-		//ref.current.position.x = position[0] + scroll.offset * parallaxSpeed
-		//console.log(ref.current.position.x)
 	})
 	return (
 		<Image
